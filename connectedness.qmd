@@ -1,0 +1,35 @@
+---
+title: "Connectedness"
+author: "Lela"
+format: html
+---
+
+```{r}
+#| label: setup
+#| echo: false
+#| message: false
+
+library(primer.data)
+library(tidyverse)
+```
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+mean_connectedness <- mean(connectedness$connectedness, na.rm = TRUE)
+
+connectedness |> ggplot(aes(
+  x = population, y = connectedness)) + geom_point() + 
+  geom_smooth(aes(x = population, y = connectedness), method = lm, se = FALSE)+
+   scale_x_log10(
+    breaks = scales::trans_breaks("log10", function(x) 10^x),
+    labels = scales::comma_format())+
+  labs(title = "US County Populations in 2018",
+  subtitle = "Populations are highly skewed", 
+  x = "Population", 
+  y = "Number of Counties")
+
+```
+
