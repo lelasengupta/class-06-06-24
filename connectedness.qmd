@@ -26,10 +26,10 @@ connectedness |> ggplot(aes(
    scale_x_log10(
     breaks = scales::trans_breaks("log10", function(x) 10^x),
     labels = scales::comma_format())+
-  labs(title = "US County Populations in 2018",
-  subtitle = "Populations are highly skewed", 
+  labs(title = "US County Populations versus Economic Connectedness",
+  subtitle = "Population size does not matter to EC", 
   x = "Population", 
-  y = "Number of Counties")
+  y = "Economic Connectedness")
 
 ```
 
